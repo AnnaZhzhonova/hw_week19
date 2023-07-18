@@ -13,11 +13,13 @@ function createArticles (parrent, title, text){
 
 }
 
-fetch('https://jsonplaceholder.typicode.com/posts')
-.then(res => res.json())
-.then((data) => {
-    data.forEach(article => {
-        createArticles(container, article.title, article.body)
+fetch('https://jsonplaceholder.typicode.com/posts' , {
+    method: 'GET'
+} )
+.then(response => response.json())
+.then((json) => {
+    json.forEach(item => {
+        createArticles(container, item.title, item.body)
     });
 
 })
