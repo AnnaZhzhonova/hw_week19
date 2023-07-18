@@ -1,0 +1,9 @@
+body{
+    background-color: #f4e1f3;
+}
+.article{
+    margin: 20px 100px;
+    padding: 20px;
+    box-shadow: 12px 12px 2px 1px rgba(236, 157, 232, 0.2);
+    background-color: #fff;
+}
