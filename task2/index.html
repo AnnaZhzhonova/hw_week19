@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Создание постов</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <section class="posting">
+                    <div>
+                        <form class="post-form" name="post">
+                            <h2 class="title">Новый пост</h2>
+                            <textarea name="title" class="post-form__title" placeholder="Заголовок поста" maxlength="200"></textarea>
+                            <textarea name="text" class="post-form__text"  placeholder="Текст поста"></textarea>
+                            <input name="btn" class="post-form__btn" type="submit" value="Создать пост">
+                        </form>
+                    </div>
+            </section>
+            <section class="blog">
+                    <h2 class="title">Моя стена</h2>
+                    <div class="blog-content"></div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="footer-text">Дуров, верни стену!</p>
+    </footer>
+    <script src="./index.js"></script>
+</body>
+</html>
