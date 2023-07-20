@@ -22,36 +22,21 @@ function getArticleText () {
 
 };
 
-function createPost (title, text) {
-    const postBox = document.createElement('div');
-    postBox.classList.add('post-box');
-    blogContainer.append(postBox);
+function createPostElement (title, text) {
+    const postWrap = document.createElement('div');
+    postWrap.classList.add('post-box');
+    blogContainer.append(postWrap);
 
-    const postTitle = document.createElement('h3');
-    postTitle.classList.add('post-title');
-    postBox.append(postTitle);
-    postTitle.textContent = title;
-
-    const postText = document.createElement('p');
-    postText.classList.add('post-text');
-    postBox.append(postText);
-    postText.textContent = text;
-
-    const newDate = new Date ();
-    const postingDate = `${newDate.getDate()}.${newDate.getMonth()}.${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}`;
-    postBox.append(postingDate);
+    postWrap.innerHTML = `<h2>${title}</h2><p>${text}</p>`
 }
 
-
-function postArticle() {
-    const articleTitle = getArticleTitle ();
-    const articleText = getArticleText ();
+function createPostArticle(title, text) {
 
     fetch('https://jsonplaceholder.typicode.com/posts',{
         method: 'POST',
         body: JSON.stringify ({
-            title: articleTitle,
-            body: articleText,
+            title: title,
+            body: text,
         }),
     
         headers: {
@@ -59,15 +44,20 @@ function postArticle() {
         }
     })
     .then(response => response.json())
-    .then(json => createPost (json.title, json.body)) 
-    .then(json => console.log(json));
+    .then(json => createPostElement (json.title, json.body)) 
+    .then(json => console.log(json))
 
-    postForm.reset();
+    .catch(error => console.error(error));
+    
 };
+
 
 
 formBtn.addEventListener ('click', (event) => {
     event.preventDefault();
-    postArticle();
+    const articleTitle = getArticleTitle ();
+    const articleText = getArticleText ();
+    createPostArticle(articleTitle, articleText);
+    postForm.reset();
 })
 
