@@ -15,11 +15,11 @@
   .posting, .blog {
     margin: 30px 50px;
   }
-  .post-form{
+  .post-form, .post-box{
     display: flex;
     flex-direction: column;
     padding: 10px 70px;
-    border: 1px solid #f66aed;
+    border: 2px solid #716af6;
   }
   .title{
     margin: 10px 0;
@@ -37,14 +37,18 @@
     border-radius: 5px;
   }
   .post-form__btn{
-    height: 30px;
+    height: 40px;
     width: 150px;
     margin: 10px 0;
+    border: none;
     border-radius: 5px;
+    background-color: #716af6;
+    color: rgb(251, 249, 247);
   }
   .blog{
     height: 100vh;
   }
+
   .footer{
     height: 150px;
     margin: 50px 50px;

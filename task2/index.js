@@ -27,7 +27,7 @@ function createPostElement (title, text) {
     postWrap.classList.add('post-box');
     blogContainer.append(postWrap);
 
-    postWrap.innerHTML = `<h2>${title}</h2><p>${text}</p>`
+    postWrap.innerHTML = `<h2 class="title"bbbb>${title}</h2><p class="text">${text}</p>`
 }
 
 function createPostArticle(title, text) {
@@ -43,13 +43,14 @@ function createPostArticle(title, text) {
             'Content-Type': 'application/json; charset=UTF-8',
         }
     })
+
     .then(response => response.json())
     .then(json => createPostElement (json.title, json.body)) 
-    .then(json => console.log(json))
 
-    .catch(error => console.error(error));
-    
+    .catch(error => console.error(error))
+    .finally(console.log(`success`))
 };
+
 
 
 
